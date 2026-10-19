@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from datetime import datetime
 from typing import Optional
-from dateclasses import dataclass, field
+from dataclasses import dataclass, field
 
 # El año no viene en el log clásico de syslog; se asume el año actual salvo
 # que se indique otro con --year en el CLI.
@@ -23,7 +23,7 @@ _SYSLOG_PREFIX = re.compile(
 )
 
 _FAILED_PASSWORD = re.compile(
-    r"Failed password for (?:invalid user )?(?P<user>\S+) from (?P<ip>[\d.]+) port (?P<port>\d+)">
+    r"Failed password for (?:invalid user )?(?P<user>\S+) from (?P<ip>[\d.]+) port (?P<port>\d+)"
 )
 
 _ACCEPTED_PASSWORD = re.compile(

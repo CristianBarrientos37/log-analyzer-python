@@ -1,0 +1,4 @@
+# El analizador funciona sin dependencias externas; estas son solo para
+# desarrollo/pruebas y para el enriquecimiento opcional con AbuseIPDB.
+pytest>=7.4
+requests>=2.31  # solo necesario si usas --abuseipdb-key

@@ -7,7 +7,7 @@ Finding (hallazgos), con severidad y una descripción lista para el reporte.
 from __future__ import annotations
 
 from collections import defaultdict
-from dateclasses import dataclass, field
+from dataclasses import dataclass, field
 from datetime import timedelta
 from typing import List
 
@@ -38,6 +38,7 @@ class Finding:
     last_seen: str = ""
     event_count: int = 1
     events: List[LogEvent] = field(default_factory=list)
+    evidence: List[str] = field(default_factory=list)
 
 def detect_brute_force(
     events: List[LogEvent],
@@ -227,7 +228,7 @@ def run_all_detectors(
     lista completa de hallazgos.
     """
     findings: List[Finding] = []
-    findings.extend(detect_brute_force(events, threshold=brute_force_threshold, window=brute_force_window))
+    findings.extend(detect_brute_force(events, threshold=brute_force_threshold, window_seconds=brute_force_window))
     findings.extend(detect_compromise_after_brute_force(events))
     findings.extend(detect_invalid_user_scanning(events))
     findings.extend(detect_privilege_escalation(events))

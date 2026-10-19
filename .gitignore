@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Reportes generados (no se suben al repo; cada quien genera el suyo)
+*.csv
+*.html
+!examples/*.html
+!examples/*.csv
